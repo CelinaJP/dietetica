@@ -15,9 +15,17 @@ body {
   padding: 20px;
 }
 
+/*Estilos para imagenes*/
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
 /* Encabezado */
 header {
-  background-color: #556B2F;
+  background-image: src('/images/frutasyverduras.jpeg');
   color: white;
   padding: 40px 20px;
   text-align: center;
