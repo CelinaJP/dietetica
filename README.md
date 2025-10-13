@@ -1,4 +1,4 @@
-# Dietética Vida Sana
+# Dietética 
 
 Este proyecto es una preentrega para un e-commerce de una dietética. Incluye:
 
