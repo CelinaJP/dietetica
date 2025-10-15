@@ -25,7 +25,7 @@ img {
 
 /* Encabezado */
 header {
-  background-image: url('/dietetica/images/frutasyverduras.jpeg');
+  background-image: url('./images/frutasyverduras.jpeg');
   color: white;
   padding: 40px 20px;
   text-align: center;
