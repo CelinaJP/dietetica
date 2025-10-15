@@ -1,4 +1,4 @@
-/* Importar la fuente Poppins desde Google Fonts */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 * {
@@ -85,6 +85,36 @@ section p {
   font-size: 1rem;
 }
 
+/* Contenedor principal de los productos */
+.productos {
+  display: flex;          
+  flex-wrap: wrap;    
+  gap: 20px;           
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Estilo para cada tarjeta de categoría */
+.producto {
+  flex: 1 1 200px; 
+  background-color: #FFFACD; 
+  color: #333;
+  padding: 25px 15px; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para el efecto hover */
+}
+
+/* Efecto al pasar el mouse por encima */
+.producto:hover {
+  transform: translateY(-5px); /* Levanta la tarjeta */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Aumenta la sombra */
+  cursor: pointer;
+  background-color: #F0E68C; 
+}
+
 /* Formulario */
 form {
   display: flex;
@@ -127,4 +157,37 @@ footer {
   padding: 20px;
   font-size: 0.9rem;
   color: #777;
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  section {
+    padding: 15px;
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  input, textarea {
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
 }
