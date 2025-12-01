@@ -3,19 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dietética</title>
+    <title>Dietética Celi | Alimentos Reales, Vida Equilibrada</title>
+    
+    <meta name="description" content="Dietética Celi ofrece la mejor selección de frutos secos, cereales, legumbres y productos Sin TACC. Alimentación consciente y natural." />
+    <meta name="keywords" content="dietética, frutos secos, cereales, sin tacc, alimentación saludable, legumbres, especias, alimentos naturales" />
+    <meta name="author" content="Dietética Celi" />
+    
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="header">
-      <h1>Dietética</h1>
+      <h1>Dietética Celi</h1>
       <p>Alimentos reales para una vida equilibrada</p>
+      
+      <div class="carrito-icon" id="icono-carrito">
+        🛒 (<span id="contador-carrito">0</span>)
+      </div>
     </header>
 
     <nav>
       <ul>
         <li><a href="#productos">Productos</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#reseñas">Reseñas</a></li>
+        <li><a href="#recursos">Recursos</a></li> <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
@@ -24,30 +34,70 @@
       <section id="productos">
         <h2>Nuestros Productos</h2>
         <p>Ofrecemos una amplia variedad de alimentos saludables: frutos secos, cereales, legumbres y más.</p>
-        <div class="productos">
-          <div class="producto">Frutos secos</div>
-          <div class="producto">Legumbres</div>
-          <div class="producto">Infusiones</div>
-          <div class="producto">Aceites</div>
-          <div class="producto">Especias</div>
-          <div class="producto">Semillas</div>
-          <div class="producto">Cereales</div>
-          <div class="producto">Sin TACC</div>
-          <div class="producto">Sin lácteos</div>
-          <div class="producto">Sin azúcar</div>
-          <div class="producto">Integrales</div>
-          <div class="producto">Frutas</div>
-          <div class="producto">Verduras</div>
+        
+        <div class="productos filtros">
+          <div class="producto activo" data-category="todos">Mostrar Todos</div>
+          <div class="producto" data-category="frutos-secos">Frutos secos</div>
+          <div class="producto" data-category="legumbres">Legumbres</div>
+          <div class="producto" data-category="infusiones">Infusiones</div>
+          <div class="producto" data-category="aceites">Aceites</div>
+          <div class="producto" data-category="especias">Especias</div>
+          <div class="producto" data-category="semillas">Semillas</div>
+          <div class="producto" data-category="cereales">Cereales</div>
+          <div class="producto" data-category="sin-tacc">Sin TACC</div>
+          <div class="producto" data-category="sin-lacteos">Sin lácteos</div>
+          <div class="producto" data-category="sin-azucar">Sin azúcar</div>
+          <div class="producto" data-category="integrales">Integrales</div>
+          <div class="producto" data-category="frutas">Frutas</div>
+          <div class="producto" data-category="verduras">Verduras</div>   
+        </div>
+        
+        <div class="lista-productos">
+            </div>
+      </section>
+      
+      <section id="recursos">
+        <h2>Recursos Saludables</h2>
+        <p>Aprende más sobre los beneficios de una alimentación natural con este video destacado de nuestro canal.</p>
+        <div class="video-container">
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/g2gD9i6y_9I" 
+                title="Beneficios de la Dieta Mediterránea" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+      </section>
+
+      <section id="reseñas">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="reseñas-grid">
+          <div class="reseña-item">
+            <p>"Excelente calidad y frescura en todos los productos. ¡Mis frutos secos favoritos!"</p>
+            <p class="autor">- Sofía M.</p>
+          </div>
+          <div class="reseña-item">
+            <p>"La mejor selección de infusiones que he encontrado. El envío fue rápido y todo llegó perfecto."</p>
+            <p class="autor">- Javier P.</p>
+          </div>
+          <div class="reseña-item">
+            <p>"Gracias a Dietética Celi, mi despensa está llena de opciones saludables. El sector Sin TACC es un 10."</p>
+            <p class="autor">- Ana R.</p>
+          </div>
         </div>
       </section>
 
       <section id="nosotros">
         <h2>Sobre Nosotros</h2>
-        <p>Somos una dietética comprometida con el bienestar de nuestros clientes, promoviendo una alimentación consciente y natural.</p>
+        <p>Somos una dietética comprometida con el bienestar de nuestros clientes, promoviendo una alimentación consciente y natural. Creemos que la salud empieza en el plato.</p>
       </section>
 
       <section id="contacto">
         <h2>Contacto</h2>
+        <p>¿Tienes alguna duda o consulta? Escríbenos, te responderemos a la brevedad.</p>
         <form action="https://formspree.io/f/mjkapyvn" method="POST">
           <label for="nombre">Nombre:</label>
           <input type="text" id="nombre" name="nombre" required />
@@ -58,13 +108,26 @@
           <label for="mensaje">Mensaje:</label>
           <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
 
-          <button type="submit">Enviar</button>
+          <button type="submit">Enviar Mensaje</button>
         </form>
       </section>
+    
+      <div id="modal-carrito" class="modal">
+        <div class="modal-contenido">
+          <span class="cerrar-modal">&times;</span>
+          <h3>🛒 Tu Carrito de Compras</h3>
+          <ul id="carrito-lista">
+            </ul>
+          <p id="carrito-total" class="total-compra">Total: $0</p>
+          <button class="btn-checkout">Finalizar Compra</button>
+        </div>
+      </div>
     </main>
 
     <footer>
       <p>&copy; 2025 Dietética Celi. Todos los derechos reservados.</p>
     </footer>
+    
+    <script src="script.js"></script>
   </body>
 </html>
