@@ -2,7 +2,7 @@
 // 7. VARIABLES GLOBALES Y CONSUMO DE API
 // =========================================================
 
-const URL_API = 'https://fakestoreapi.com/products?limit=8'; 
+const URL_API = 'https://fakestoreapi.com/products?limit=8';
 const LISTA_PRODUCTOS_HTML = document.querySelector('.lista-productos');
 const CONTADOR_CARRITO_HTML = document.getElementById('contador-carrito');
 const MODAL_CARRITO_HTML = document.getElementById('modal-carrito');
@@ -15,14 +15,16 @@ let carrito = JSON.parse(localStorage.getItem('carritoDietetica')) || [];
 
 // Nombres y rutas de imagen locales para la dietética (Para poder poner tus fotos)
 const productosDietetica = [
-    { titulo: "Almendras (x 100g)", categoria: "frutos-secos", imagen: "./images/almendras.jpg" },
-    { titulo: "Lentejas (x 500g)", categoria: "legumbres", imagen: "./images/lentejas.jpg" },
-    { titulo: "Nueces (x 100g)", categoria: "frutos-secos", imagen: "./images/nueces.jpg" },
+    { titulo: "Almendras (x 100g)", categoria: "frutos-secos", imagen: "./images/Almendras.jpg" },
+    { titulo: "Lentejas (x 500g)", categoria: "legumbres", imagen: "./images/Lentejas.jpg" },
+    { titulo: "Nueces (x 100g)", categoria: "frutos-secos", imagen: "./images/Nueces.jpg" },
     { titulo: "Té Verde (en hebras)", categoria: "infusiones", imagen: "./images/te-verde.jpg" },
     { titulo: "Galletas Sin TACC", categoria: "sin-tacc", imagen: "./images/galletas-sintacc.jpg" },
     { titulo: "Avena instantánea", categoria: "cereales", imagen: "./images/avena.jpg" },
     { titulo: "Aceite de Oliva Extra Virgen", categoria: "aceites", imagen: "./images/aceite-oliva.jpg" },
-    { titulo: "Semillas de Chía", categoria: "semillas", imagen: "./images/semillas-chia.jpg" }
+    { titulo: "Semillas de Chía", categoria: "semillas", imagen: "./images/semillas-chia.jpg" },
+    { titulo: "Manzana", categoria: "disecadas", imagen: "./images/disecadas.jpg" },
+    { titulo: "Castaña de Caju (x 500g)", categoria: "frutos-secos", imagen: "./images/Caju.png" },
 ];
 
 
@@ -46,13 +48,13 @@ async function obtenerProductosAPI() {
                 category: dataLocal.categoria
             };
         });
-
-        mostrarProductos(productosDisponibles);
+        
     } catch (error) {
         console.error("Error al obtener datos de la API:", error);
         LISTA_PRODUCTOS_HTML.innerHTML = '<p class="error-msg">No se pudieron cargar los productos. Por favor, intente más tarde.</p>';
     }
 }
+
 
 // Función para renderizar los productos en el DOM
 function mostrarProductos(productos) {
@@ -77,34 +79,42 @@ function mostrarProductos(productos) {
     });
 }
 
-
 // =========================================================
 // 7. MANEJO DE FILTRADO (DOM)
 // =========================================================
 
 function aplicarFiltro() {
     BOTONES_CATEGORIA.forEach(boton => {
-        boton.addEventListener('click', () => {
-            const categoriaSeleccionada = boton.dataset.category;
-            const productosDOM = document.querySelectorAll('.lista-productos .producto-item');
-
-            // Manejo de clase 'activo'
+        boton.addEventListener('click', (e) => {
+            // 1. Manejo visual de la clase 'activo'
             BOTONES_CATEGORIA.forEach(b => b.classList.remove('activo'));
-            boton.classList.add('activo');
+            e.target.classList.add('activo');
 
-            // Filtrado de productos en el DOM
-            productosDOM.forEach(producto => {
-                const categoriaProducto = producto.dataset.category;
-                
-                if (categoriaSeleccionada === 'todos' || categoriaProducto === categoriaSeleccionada) {
-                    producto.classList.remove('oculto');
-                } else {
-                    producto.classList.add('oculto');
-                }
-            });
+            // 2. Obtener la categoría del botón pulsado
+            const categoriaSeleccionada = e.target.dataset.category;
+            
+            // 3. Filtrar el array de datos
+            let productosParaMostrar = [];
+
+            if (categoriaSeleccionada === 'todos') {
+                productosParaMostrar = productosDisponibles;
+            } else {
+                productosParaMostrar = productosDisponibles.filter(
+                    prod => prod.category === categoriaSeleccionada
+                );
+            }
+
+            // 4. Renderizar (Mostrar) los productos filtrados
+            mostrarProductos(productosParaMostrar);
+
+            // Mensaje opcional si no hay productos en esa categoría
+            if (productosParaMostrar.length === 0) {
+                LISTA_PRODUCTOS_HTML.innerHTML = `<p>No hay productos disponibles en la categoría: ${categoriaSeleccionada}</p>`;
+            }
         });
     });
 }
+
 
 
 // =========================================================
