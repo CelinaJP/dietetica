@@ -21,13 +21,13 @@ const productosDietetica = [
     { titulo: "Garbanzo (x500g)", categoria: "legumbres", imagen: "./images/Garbanzos.jpg" },
     { titulo: "Lentejas (x 500g)", categoria: "legumbres", imagen: "./images/Lentejas.jpg" },
     { titulo: "Nueces (x 100g)", categoria: "frutos-secos", imagen: "./images/Nueces.jpg" },
-    { titulo: "Té Verde (en hebras)", categoria: "infusiones", imagen: "./images/te-verde.jpg" },
+    { titulo: "Té (en hebras)", categoria: "infusiones", imagen: "./images/Ténegro.jpg" },
     { titulo: "Galletas Sin TACC", categoria: "sin-tacc", imagen: "./images/galletas-sintacc.jpg" },
     { titulo: "Avena instantánea", categoria: "cereales", imagen: "./images/avena.jpg" },
     { titulo: "Aceite de Oliva Extra Virgen", categoria: "aceites", imagen: "./images/aceite-oliva.jpg" },
     { titulo: "Semillas de Chía", categoria: "semillas", imagen: "./images/semillas-chia.jpg" },
     { titulo: "Manzana", categoria: "disecadas", imagen: "./images/disecadas.jpg" },
-    { titulo: "Castaña de Caju (x 500g)", categoria: "frutos-secos", imagen: "./images/Caju.png" },
+    { titulo: "Castaña de Caju (x 500g)", categoria: "frutos-secos", imagen: "./images/Caju.jpg" },
 ];
 
 
@@ -121,7 +121,60 @@ function aplicarFiltro() {
 
 
 // =========================================================
-// 8. CARRITO DE COMPRAS DINÁMICO (localStorage)
+// 8. BÚSQUEDA DE PRODUCTOS (Filtro por nombre)
+// =========================================================
+
+function configurarBuscador() {
+    const buscadorInput = document.getElementById('buscador-productos');
+    const btnBuscar = document.getElementById('btn-buscar');
+    
+    if (!buscadorInput) return;
+    
+    // Función para filtrar por búsqueda
+    const buscarProductos = () => {
+        const termino = buscadorInput.value.toLowerCase().trim();
+        
+        if (termino === '') {
+            mostrarProductos(productosDisponibles);
+            return;
+        }
+        
+        const resultados = productosDisponibles.filter(prod =>
+            prod.titulo.toLowerCase().includes(termino)
+        );
+        
+        if (resultados.length === 0) {
+            LISTA_PRODUCTOS_HTML.innerHTML = '<p style="text-align: center; color: #999;">No se encontraron productos con ese nombre.</p>';
+        } else {
+            mostrarProductos(resultados);
+        }
+    };
+    
+    // Evento de búsqueda en tiempo real
+    buscadorInput.addEventListener('input', buscarProductos);
+    
+    // Evento del botón búsqueda
+    btnBuscar.addEventListener('click', buscarProductos);
+    
+    // Permitir búsqueda con Enter
+    buscadorInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            buscarProductos();
+        }
+    });
+    
+    // Limpiar búsqueda al hacer clic en categoría
+    BOTONES_CATEGORIA.forEach(boton => {
+        boton.addEventListener('click', () => {
+            buscadorInput.value = '';
+        });
+    });
+}
+
+
+
+// =========================================================
+// 9. CARRITO DE COMPRAS DINÁMICO (localStorage)
 // =========================================================
 
 function actualizarContadorCarrito() {
@@ -259,7 +312,8 @@ function validarFormulario(e) {
 
 document.addEventListener('DOMContentLoaded', () => {
     obtenerProductosAPI(); 
-    aplicarFiltro(); 
+    aplicarFiltro();
+    configurarBuscador();
     actualizarContadorCarrito();
     
     if (FORMULARIO_CONTACTO) {
