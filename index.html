@@ -12,29 +12,32 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="header">
-      <h1>Dietética</h1>
-      <p>Alimentos reales para una vida equilibrada</p>
-      
-      <div class="carrito-icon" id="icono-carrito">
-        🛒 (<span id="contador-carrito">0</span>)
-      </div>
-    </header>
-
+    <!-- Navbar fijo -->
     <nav>
       <ul>
         <li><a href="#productos">Productos</a></li>
         <li><a href="#reseñas">Reseñas</a></li>
-        <li><a href="#recursos">Recursos</a></li> <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#recursos">Recursos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
+      <div class="carrito-icon" id="icono-carrito">
+    <img src="./images/Carrito.png" alt="Carrito de compras" class="carrito-img" />
+    <span id="contador-carrito">0</span>
+  </div>
     </nav>
 
+    <!-- Header con imagen -->
+    <header class="header">
+      <h1>Dietética</h1>
+      <p>Alimentos reales para una vida equilibrada</p>
+    </header>
+
     <main>
+      <!-- Sección Productos -->
       <section id="productos">
         <h2>Nuestros Productos</h2>
-        <p>En nuestra web vas a encontrar alimentos que nutren el cuerpo de manera saludable. Seleccionamos cuidadosamente los alimentos garantizando calidad, frescura y sabor auténtico.
-Cada producto refleja nuestro compromiso con la alimentación consciente, ofreciendo alternativas que cuidan tu salud y respetan la naturaleza.</p>
+        <p>En nuestra web vas a encontrar alimentos que nutren el cuerpo de manera saludable...</p>
         
         <div class="productos filtros">
           <div class="producto" data-category="todos">Mostrar Todos</div>
@@ -52,17 +55,15 @@ Cada producto refleja nuestro compromiso con la alimentación consciente, ofreci
           <div class="producto" data-category="disecadas">Disecadas</div>   
         </div>
         
-        <div class="lista-productos">
-            </div>
+        <div class="lista-productos"></div>
       </section>
       
+      <!-- Recursos -->
       <section id="recursos">
         <h2>Recursos Saludables</h2>
-        <p>Aprende más sobre los beneficios de una alimentación natural con este video destacado de nuestro canal.</p>
+        <p>Aprende más sobre los beneficios de una alimentación natural con este video destacado.</p>
         <div class="video-container">
             <iframe 
-                width="560" 
-                height="315" 
                 src="https://youtu.be/uA1yn2wUW0E?si=P0W5LqdMcdxwQ_Rt" 
                 title="Beneficios de la Dieta Mediterránea" 
                 frameborder="0" 
@@ -72,34 +73,34 @@ Cada producto refleja nuestro compromiso con la alimentación consciente, ofreci
         </div>
       </section>
 
+      <!-- Reseñas -->
       <section id="reseñas">
         <h2>Lo que dicen nuestros clientes</h2>
         <div class="reseñas-grid">
           <div class="reseña-item">
-            <p>"Excelente calidad y frescura en todos los productos. ¡Mis frutos secos favoritos!"</p>
+            <p>"Excelente calidad y frescura en todos los productos."</p>
             <p class="autor">- Sofía M.</p>
           </div>
           <div class="reseña-item">
-            <p>"La mejor selección de infusiones que he encontrado. El envío fue rápido y todo llegó perfecto."</p>
+            <p>"La mejor selección de infusiones que he encontrado."</p>
             <p class="autor">- Javier P.</p>
           </div>
           <div class="reseña-item">
-            <p>"Muchas gracias, ahora mi despensa está llena de opciones saludables. El sector Sin TACC es un 10."</p>
+            <p>"Muchas gracias, ahora mi despensa está llena de opciones saludables."</p>
             <p class="autor">- Ana R.</p>
           </div>
         </div>
       </section>
 
+      <!-- Nosotros -->
       <section id="nosotros">
         <h2>Sobre Nosotros</h2>
-        <p>Somos una dietética comprometida con el bienestar de nuestros clientes, promoviendo una alimentación consciente y natural. Creemos que la salud empieza en el plato y que cada elección puede transformar nuestro día a día.
-Nuestra misión es ser un espacio de confianza donde cada persona encuentre productos que acompañen su estilo de vida, acercando alimentos saludables y accesibles a las mesas, que nutran el cuerpo y respeten la naturaleza.
-Más que un almacén, somos un lugar donde se fomenta la alimentación responsable, donde cada cliente forma parte de una comunidad que elige cuidarse de manera consciente y disfrutar de lo natural en su forma más auténtica.</p>
+        <p>Somos una dietética comprometida con el bienestar de nuestros clientes...</p>
       </section>
 
+      <!-- Contacto -->
       <section id="contacto">
         <h2>Contacto</h2>
-        <p>¿Tienes alguna duda o consulta? Escríbenos, te responderemos a la brevedad.</p>
         <form action="https://formspree.io/f/mjkapyvn" method="POST">
           <label for="nombre">Nombre:</label>
           <input type="text" id="nombre" name="nombre" required />
@@ -114,12 +115,12 @@ Más que un almacén, somos un lugar donde se fomenta la alimentación responsab
         </form>
       </section>
     
+      <!-- Modal Carrito -->
       <div id="modal-carrito" class="modal">
         <div class="modal-contenido">
           <span class="cerrar-modal">&times;</span>
           <h3>🛒 Tu Carrito de Compras</h3>
-          <ul id="carrito-lista">
-            </ul>
+          <ul id="carrito-lista"></ul>
           <p id="carrito-total" class="total-compra">Total: $0</p>
           <button class="btn-checkout">Finalizar Compra</button>
         </div>

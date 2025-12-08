@@ -11,56 +11,27 @@ body {
   background-color: #F9F9F9;
   color: #333;
   line-height: 1.6;
-  padding: 20px;
 }
 
-/* Estilos para imágenes */
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
-}
-
-
-/* Encabezado */
-header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/frutasyverduras.jpeg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 60px 20px;
-  text-align: center;
-  border-radius: 8px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  position: relative; /* Para posicionar el ícono del carrito */
-}
-
-header h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-header p {
-  font-size: 1.3rem;
-  font-weight: 300;
-  font-family: 'Nunito', sans-serif;
-}
-
-/* Navegación */
+/* ---------------------------------------------------- */
+/* Navbar fijo */
 nav {
-  margin: 20px 0;
-  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #FFFACD;
-  padding: 10px 0;
-  border-radius: 8px;
+  padding: 10px 30px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: center;
   gap: 30px;
 }
 
@@ -75,6 +46,60 @@ nav a:hover {
   color: #6B8E23;
 }
 
+/* Carrito dentro del nav */
+.carrito-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #556B2F;
+  padding: 4px 6px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.carrito-icon:hover {
+  background-color: rgba(85,107,47,0.08);
+}
+
+.carrito-img {
+  width: 28px;
+  height: auto;
+  display: block;
+}
+
+#contador-carrito {
+  font-weight: 700;
+  color: #556B2F;
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------- */
+/* Header debajo del nav */
+.header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('./images/frutasyverduras.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 120px 20px 60px; /* espacio arriba para el nav fijo */
+  text-align: center;
+  border-radius: 8px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.3rem;
+  font-weight: 300;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ---------------------------------------------------- */
 /* Secciones */
 section {
   margin: 40px 0;
@@ -98,9 +123,7 @@ section p {
 }
 
 /* ---------------------------------------------------- */
-/* Sección Productos (Flexbox y Filtros) */
-
-/* Contenedor de Filtros/Categorías */
+/* Productos (Filtros y Cards) */
 .productos.filtros {
   display: flex;          
   flex-wrap: wrap;    
@@ -109,9 +132,7 @@ section p {
   margin-bottom: 30px;
 }
 
-/* Estilo para cada tarjeta de categoría (Filtros) */
 .producto {
-  /* Arreglo para diseño compacto */
   flex: 0 1 100px; 
   background-color: #FFFACD; 
   border: 1px solid #DCDCDC;
@@ -126,7 +147,7 @@ section p {
 }
 
 .producto:hover,
-.producto:focus { /* Accesibilidad */
+.producto:focus {
   background-color: #F0E68C; 
   transform: translateY(-2px);
   outline: 2px solid #556B2F; 
@@ -134,106 +155,101 @@ section p {
 }
 
 .producto.activo {
-    background-color: #556B2F; 
-    color: white;
-    transform: scale(1.03);
+  background-color: #556B2F; 
+  color: white;
+  transform: scale(1.03);
 }
 
-/* Clase para ocultar productos (necesaria para el JS) */
 .oculto {
   display: none !important;
 }
 
-/* Contenedor de Productos (las cards) - Aplicación de Flexbox */
 .lista-productos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-/* Estilo para cada tarjeta de producto (producto-item) */
 .producto-item {
-    flex: 0 0 calc(33.33% - 20px);
-    max-width: 300px;
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding-bottom: 15px;
-    transition: transform 0.3s ease;
+  flex: 0 0 calc(33.33% - 20px);
+  max-width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding-bottom: 15px;
+  transition: transform 0.3s ease;
 }
 
 .producto-item:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .producto-item h4 {
-    margin: 10px 0 5px;
-    color: #556B2F;
+  margin: 10px 0 5px;
+  color: #556B2F;
 }
 
 .producto-item p {
-    font-weight: 700;
-    color: #333;
-    margin: 0;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
 }
 
 .btn-agregar {
-    background-color: #6B8E23;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: #6B8E23;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .btn-agregar:hover {
-    background-color: #556B2F;
+  background-color: #556B2F;
 }
 
 /* ---------------------------------------------------- */
-/* Sección Reseñas (Grid) */
-
+/* Reseñas (Grid) */
 .reseñas-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px;
 }
 
 .reseña-item {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    border-left: 5px solid #6B8E23;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    font-style: italic;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 5px solid #6B8E23;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-style: italic;
 }
 
 /* ---------------------------------------------------- */
-/* Consigna 5: Estilos para Video Responsivo */
-
+/* Video responsivo */
 .video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Proporción 16:9 */
-    height: 0;
-    overflow: hidden;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* ---------------------------------------------------- */
@@ -244,76 +260,57 @@ form {
   gap: 15px;
   margin-top: 20px;
 }
-/* ... otros estilos de formulario ... */
 
 /* ---------------------------------------------------- */
-/* Consignas 8 y 9: Estilos para Carrito y Modal */
-
-.carrito-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    background-color: #6B8E23;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-}
-
+/* Carrito y Modal */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 10; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.6); 
+  display: none; 
+  position: fixed; 
+  z-index: 10; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.6); 
 }
 
 .modal-contenido {
-    background-color: #fefefe;
-    margin: 10% auto; 
-    padding: 30px;
-    border: 1px solid #888;
-    width: 90%; 
-    max-width: 600px;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  background-color: #fefefe;
+  margin: 10% auto; 
+  padding: 30px;
+  border: 1px solid #888;
+  width: 90%; 
+  max-width: 600px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .carrito-item-controles {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-/* ... otros estilos de modal y carrito ... */
 
 /* ---------------------------------------------------- */
-/* Media Queries (Responsivo) */
-
+/* Media Queries */
 @media (max-width: 900px) {
-    .producto-item {
-        flex: 0 0 calc(50% - 15px);
-    }
+  .producto-item {
+    flex: 0 0 calc(50% - 15px);
+  }
 }
 
 @media (max-width: 600px) {
-    /* ... otros estilos de móvil ... */
-    .producto-item {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-    .reseñas-grid {
-        grid-template-columns: 1fr;
-    }
-    .carrito-icon {
-        font-size: 1rem;
-        padding: 8px;
-    }
+  .producto-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .reseñas-grid {
+    grid-template-columns: 1fr;
+  }
+  .carrito-icon {
+    font-size: 1rem;
+    padding: 8px;
+  }
 }
