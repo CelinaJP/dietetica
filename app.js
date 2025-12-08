@@ -16,6 +16,9 @@ let carrito = JSON.parse(localStorage.getItem('carritoDietetica')) || [];
 // Nombres y rutas de imagen locales para la dietética (Para poder poner tus fotos)
 const productosDietetica = [
     { titulo: "Almendras (x 100g)", categoria: "frutos-secos", imagen: "./images/Almendras.jpg" },
+    { titulo: "Maní (x 100g", categoria: "frutos-secos", imagen: "./images/Maní.jpg" },
+    { titulo: "Caju (x 500g)", categoria: "frutos-secos", imagen: "./images/Caju.jpg" },
+    { titulo: "Garbanzo (x500g)", categoria: "legumbres", imagen: "./images/Garbanzos.jpg" },
     { titulo: "Lentejas (x 500g)", categoria: "legumbres", imagen: "./images/Lentejas.jpg" },
     { titulo: "Nueces (x 100g)", categoria: "frutos-secos", imagen: "./images/Nueces.jpg" },
     { titulo: "Té Verde (en hebras)", categoria: "infusiones", imagen: "./images/te-verde.jpg" },
