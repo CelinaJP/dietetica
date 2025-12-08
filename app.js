@@ -52,6 +52,9 @@ async function obtenerProductosAPI() {
             };
         });
         
+        // Mostrar productos después de cargar
+        mostrarProductos(productosDisponibles);
+        
     } catch (error) {
         console.error("Error al obtener datos de la API:", error);
         LISTA_PRODUCTOS_HTML.innerHTML = '<p class="error-msg">No se pudieron cargar los productos. Por favor, intente más tarde.</p>';
@@ -168,6 +171,62 @@ function configurarBuscador() {
         boton.addEventListener('click', () => {
             buscadorInput.value = '';
         });
+    });
+}
+
+
+
+// =========================================================
+// 8. BÚSQUEDA DE PRODUCTOS (Filtro por nombre)
+// =========================================================
+
+function configurarBuscador() {
+    const buscadorInput = document.getElementById('buscador-productos');
+    const searchBtnImg = document.querySelector('.search-btn-img');
+    
+    if (!buscadorInput) return;
+    
+    // Función para filtrar por búsqueda
+    const buscarProductos = () => {
+        const termino = buscadorInput.value.toLowerCase().trim();
+        
+        if (termino === '') {
+            // Si está vacío, mostrar todos
+            mostrarProductos(productosDisponibles);
+            return;
+        }
+        
+        // Filtrar productos que coincidan con el término
+        const resultados = productosDisponibles.filter(prod =>
+            prod.titulo.toLowerCase().includes(termino)
+        );
+        
+        // Si no hay resultados, mostrar mensaje
+        if (resultados.length === 0) {
+            LISTA_PRODUCTOS_HTML.innerHTML = '<p style="text-align: center; color: #999; padding: 30px;">No existe ese producto.</p>';
+        } else {
+            // Si hay resultados, mostrarlos
+            mostrarProductos(resultados);
+        }
+    };
+    
+    // Evento de búsqueda en tiempo real mientras escribes
+    buscadorInput.addEventListener('input', buscarProductos);
+    
+    // Evento del botón imagen
+    if (searchBtnImg) {
+        searchBtnImg.addEventListener('click', (e) => {
+            e.preventDefault();
+            buscarProductos();
+        });
+    }
+    
+    // Permitir búsqueda con Enter
+    buscadorInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            buscarProductos();
+        }
     });
 }
 
@@ -313,8 +372,12 @@ function validarFormulario(e) {
 document.addEventListener('DOMContentLoaded', () => {
     obtenerProductosAPI(); 
     aplicarFiltro();
-    configurarBuscador();
     actualizarContadorCarrito();
+    
+    // Configurar buscador después de un pequeño delay para asegurar que los productos estén cargados
+    setTimeout(() => {
+        configurarBuscador();
+    }, 300);
     
     if (FORMULARIO_CONTACTO) {
         FORMULARIO_CONTACTO.addEventListener('submit', validarFormulario);
