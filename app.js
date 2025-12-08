@@ -16,7 +16,7 @@ let carrito = JSON.parse(localStorage.getItem('carritoDietetica')) || [];
 // Nombres y rutas de imagen locales para la dietética (Para poder poner tus fotos)
 const productosDietetica = [
     { titulo: "Almendras (x 100g)", categoria: "frutos-secos", imagen: "./images/Almendras.jpg" },
-    { titulo: "Maní (x 100g", categoria: "frutos-secos", imagen: "./images/Maní.jpg" },
+    { titulo: "Maní (x 100g)", categoria: "frutos-secos", imagen: "./images/Maní.jpg" },
     { titulo: "Caju (x 500g)", categoria: "frutos-secos", imagen: "./images/Caju.jpg" },
     { titulo: "Garbanzo (x500g)", categoria: "legumbres", imagen: "./images/Garbanzos.jpg" },
     { titulo: "Lentejas (x 500g)", categoria: "legumbres", imagen: "./images/Lentejas.jpg" },
@@ -166,7 +166,7 @@ function renderizarCarrito() {
     let totalCompra = 0;
 
     if (carrito.length === 0) {
-        CARRITO_LISTA_HTML.innerHTML = '<li><p>El carrito está vacío.</p></li>';
+        CARRITO_LISTA_HTML.innerHTML = '<li style="text-align: center; color: #999; border-left: none;"><p>El carrito está vacío. ¡Comienza a comprar!</p></li>';
     } else {
         carrito.forEach(prod => {
             const subtotal = prod.precio * prod.cantidad;
