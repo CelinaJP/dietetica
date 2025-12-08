@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+    
+    <!-- Loader -->
+    <div id="loader" class="loader"></div>
+
     <!-- Navbar fijo -->
     <nav>
       <ul>
@@ -38,6 +44,17 @@
       <section id="productos">
         <h2>Nuestros Productos</h2>
         <p>En nuestra web vas a encontrar alimentos que nutren el cuerpo de manera saludable...</p>
+        
+        <!-- Barra de búsqueda -->
+        <div class="search-container">
+          <input 
+            type="text" 
+            id="busqueda-productos" 
+            class="search-input" 
+            placeholder="Buscar productos por nombre..."
+          >
+          <span class="search-icon">🔍</span>
+        </div>
         
         <div class="productos filtros">
           <div class="producto" data-category="todos">Mostrar Todos</div>
@@ -128,7 +145,28 @@
     </main>
 
     <footer>
-      <p>&copy; 2025 Dietética. Todos los derechos reservados. Desarrollado por Celina Pereyra.</p>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Sobre Nosotros</h4>
+          <p>Dietética dedicada a la venta de alimentos naturales y saludables para tu bienestar.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Contacto</h4>
+          <p>Email: info@dietetica.com</p>
+          <p>Teléfono: +54 11 XXXX-XXXX</p>
+        </div>
+        <div class="footer-section">
+          <h4>Redes Sociales</h4>
+          <p>
+            <a href="#" target="_blank">Instagram</a> |
+            <a href="#" target="_blank">Facebook</a> |
+            <a href="#" target="_blank">WhatsApp</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Dietética. Todos los derechos reservados. Desarrollado por Celina Pereyra.</p>
+      </div>
     </footer>
     
     <script src="app.js"></script>
