@@ -1,8 +1,9 @@
 /* Botón Flotante WhatsApp y Footer */
 .btn-combo-flotante {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
   background-color: var(--color-secondary);
   color: white;
   padding: 14px 24px;
@@ -21,7 +22,7 @@
 
 .btn-combo-flotante:hover {
   background-color: var(--color-primary);
-  transform: translateY(-3px);
+  transform: translateY(calc(-50% - 6px));
   box-shadow: 0 6px 16px rgba(85, 107, 47, 0.4);
 }
 
@@ -147,8 +148,10 @@ footer a {
   }
 
   .btn-combo-flotante {
+    top: auto;
     bottom: 20px;
     right: 20px;
+    transform: none;
     padding: 12px 18px;
     font-size: 0.85rem;
   }
