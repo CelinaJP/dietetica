@@ -1,0 +1,155 @@
+/* Botón Flotante WhatsApp y Footer */
+.btn-combo-flotante {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(85, 107, 47, 0.3);
+  transition: all 0.3s ease;
+  z-index: 500;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-combo-flotante:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(85, 107, 47, 0.4);
+}
+
+.btn-combo-flotante:active {
+  transform: translateY(-1px);
+}
+
+/* Footer */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  padding: 18px 20px;
+  color: var(--color-accent); /* texto amarillo pálido coherente con paleta */
+  background-color: var(--color-primary); /* verde oscuro usado en el tema */
+  font-size: 0.95rem;
+  position: relative;
+  border-top: 3px solid var(--color-secondary); /* línea superior sutil en tono oliva */
+}
+
+footer p {
+  margin: 0;
+  color: inherit;
+}
+
+footer a {
+  color: var(--color-white); /* enlaces en blanco para buena legibilidad */
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .producto-item {
+    flex: 0 0 calc(50% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-contenido {
+    margin: 20% auto;
+    width: 90%;
+    padding: 25px;
+  }
+  
+  .carrito-item-controles {
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: auto;
+  }
+  
+  #carrito-lista li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .producto-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .reseñas-grid {
+    grid-template-columns: 1fr;
+  }
+  .carrito-icon {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .nav-search {
+    order: 1;
+    width: calc(100% - 150px);
+    margin-left: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    padding: 8px 15px;
+  }
+
+  nav ul {
+    order: 2;
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+  }
+  
+  .modal-contenido {
+    margin: 50% auto 10% auto;
+    width: 95%;
+    max-width: 100%;
+    padding: 20px;
+  }
+  
+  .modal-contenido h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+  
+  #carrito-lista {
+    max-height: 300px;
+  }
+  
+  #carrito-lista li {
+    padding: 12px;
+  }
+  
+  .carrito-item-controles {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .btn-checkout {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .btn-combo-flotante {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    font-size: 0.85rem;
+  }
+}

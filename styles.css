@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Nunito:wght@400;700&display=swap');
 
+/* ========================= */
+/* Variables CSS (tema)     */
+/* ========================= */
+:root {
+  --color-primary: #556B2F;        /* verde oscuro */
+  --color-secondary: #6B8E23;      /* verde oliva */
+  --color-accent: #FFFACD;         /* amarillo pálido */
+  --color-white: #ffffff;
+  --color-text: #333333;
+  --color-text-light: #999999;
+  --color-bg: #F9F9F9;
+  --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 10px rgba(0,0,0,0.1);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,8 +27,8 @@
 }
 
 body {
-  background-color: #F9F9F9;
-  color: #333;
+  background-color: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
 }
 
@@ -20,9 +39,9 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #FFFACD;
+  background-color: var(--color-accent);
   padding: 10px 30px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-sm);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,13 +56,13 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #556B2F;
+  color: var(--color-primary);
   font-weight: 700;
   transition: color 0.3s ease;
 }
 
 nav a:hover {
-  color: #6B8E23;
+  color: var(--color-secondary);
 }
 
 /* Buscador en el navbar */
@@ -51,10 +70,10 @@ nav a:hover {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: 20px;
   padding: 6px 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .search-input {
@@ -62,13 +81,13 @@ nav a:hover {
   background: transparent;
   outline: none;
   font-size: 0.9rem;
-  color: #556B2F;
+  color: var(--color-primary);
   width: 180px;
   padding: 0;
 }
 
 .search-input::placeholder {
-  color: #999;
+  color: var(--color-text-light);
 }
 
 .search-btn-img {
@@ -89,10 +108,10 @@ nav a:hover {
   gap: 8px;
   cursor: pointer;
   background-color: transparent;
-  color: #556B2F;
+  color: var(--color-primary);
   padding: 4px 6px;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  transition: background-color var(--transition);
 }
 
 .carrito-icon:hover {
@@ -107,7 +126,7 @@ nav a:hover {
 
 #contador-carrito {
   font-weight: 700;
-  color: #556B2F;
+  color: var(--color-primary);
   font-size: 0.95rem;
 }
 
@@ -140,15 +159,15 @@ nav a:hover {
 section {
   margin: 40px 0;
   padding: 30px;
-  background-color: #FFFACD;
+  background-color: var(--color-accent);
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow-md);
 }
 
 section h2 {
   font-size: 2rem;
   margin-bottom: 15px;
-  color: #556B2F;
+  color: var(--color-primary);
   border-bottom: 2px solid #DCDCDC;
   padding-bottom: 5px;
 }
@@ -170,7 +189,7 @@ section p {
 
 .producto {
   flex: 0 1 100px; 
-  background-color: #FFFACD; 
+  background-color: var(--color-accent); 
   border: 1px solid #DCDCDC;
   padding: 10px 15px; 
   border-radius: 8px;
@@ -191,7 +210,7 @@ section p {
 }
 
 .producto.activo {
-  background-color: #556B2F; 
+  background-color: var(--color-primary); 
   color: white;
   transform: scale(1.03);
 }
@@ -214,7 +233,7 @@ section p {
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
   text-align: center;
   padding-bottom: 15px;
   transition: transform 0.3s ease;
@@ -242,17 +261,17 @@ section p {
 
 .producto-item h4 {
   margin: 10px 0 5px;
-  color: #556B2F;
+  color: var(--color-primary);
 }
 
 .producto-item p {
   font-weight: 700;
-  color: #333;
+  color: var(--color-text);
   margin: 0;
 }
 
 .btn-agregar {
-  background-color: #6B8E23;
+  background-color: var(--color-secondary);
   color: white;
   border: none;
   padding: 10px;
@@ -263,7 +282,7 @@ section p {
 }
 
 .btn-agregar:hover {
-  background-color: #556B2F;
+  background-color: var(--color-primary);
 }
 
 /* ---------------------------------------------------- */
@@ -278,7 +297,7 @@ section p {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  border-left: 5px solid #6B8E23;
+  border-left: 5px solid var(--color-secondary);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   font-style: italic;
 }
@@ -359,9 +378,9 @@ form {
 
 .modal-contenido h3 {
   font-size: 1.8rem;
-  color: #556B2F;
+  color: var(--color-primary);
   margin-bottom: 20px;
-  border-bottom: 3px solid #6B8E23;
+  border-bottom: 3px solid var(--color-secondary);
   padding-bottom: 12px;
   display: flex;
   align-items: center;
@@ -387,7 +406,7 @@ form {
 }
 
 .cerrar-modal:hover {
-  color: #556B2F;
+  color: var(--color-primary);
 }
 
 #carrito-lista {
@@ -399,11 +418,11 @@ form {
 }
 
 #carrito-lista li {
-  background-color: #f9f9f9;
+  background-color: var(--color-white);
   padding: 15px;
   margin-bottom: 12px;
   border-radius: 8px;
-  border-left: 4px solid #6B8E23;
+  border-left: 4px solid var(--color-secondary);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -423,7 +442,7 @@ form {
 
 .carrito-item-info span {
   font-weight: 600;
-  color: #333;
+  color: var(--color-text);
   font-size: 0.95rem;
   word-break: break-word;
 }
@@ -449,7 +468,7 @@ form {
 
 .carrito-item-controles input[type="number"]:focus {
   outline: none;
-  border-color: #6B8E23;
+  border-color: var(--color-secondary);
   box-shadow: 0 0 4px rgba(107,142,35,0.2);
 }
 
@@ -474,29 +493,29 @@ form {
 
 .carrito-subtotal {
   font-weight: 700;
-  color: #556B2F;
+  color: var(--color-primary);
   min-width: 60px;
   text-align: right;
   font-size: 0.95rem;
 }
 
 .total-compra {
-  background-color: #FFFACD;
+  background-color: var(--color-accent);
   padding: 15px;
   border-radius: 8px;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #556B2F;
+  color: var(--color-primary);
   text-align: right;
   margin-top: 20px;
-  border-top: 2px solid #6B8E23;
+  border-top: 2px solid var(--color-secondary);
 }
 
 .btn-checkout {
   width: 100%;
   padding: 14px;
   margin-top: 15px;
-  background-color: #6B8E23;
+  background-color: var(--color-secondary);
   color: white;
   border: none;
   border-radius: 8px;
@@ -507,13 +526,45 @@ form {
 }
 
 .btn-checkout:hover {
-  background-color: #556B2F;
+  background-color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(85,107,47,0.3);
 }
 
 .btn-checkout:active {
   transform: translateY(0);
+}
+
+/* ---------------------------------------------------- */
+/* Botón Flotante WhatsApp */
+.btn-combo-flotante {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--color-secondary);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(85, 107, 47, 0.3);
+  transition: all 0.3s ease;
+  z-index: 500;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-combo-flotante:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(85, 107, 47, 0.4);
+}
+
+.btn-combo-flotante:active {
+  transform: translateY(-1px);
 }
 
 /* ---------------------------------------------------- */
@@ -620,11 +671,11 @@ footer {
   margin-top: 30px;
   text-align: center;
   padding: 18px 20px;
-  color: #FFFACD; /* texto amarillo pálido coherente con paleta */
-  background-color: #556B2F; /* verde oscuro usado en el tema */
+  color: var(--color-accent); /* texto amarillo pálido coherente con paleta */
+  background-color: var(--color-primary); /* verde oscuro usado en el tema */
   font-size: 0.95rem;
   position: relative;
-  border-top: 3px solid #6B8E23; /* línea superior sutil en tono oliva */
+  border-top: 3px solid var(--color-secondary); /* línea superior sutil en tono oliva */
 }
 
 footer p {
@@ -633,11 +684,17 @@ footer p {
 }
 
 footer a {
-  color: #FFF; /* enlaces en blanco para buena legibilidad */
+  color: var(--color-white); /* enlaces en blanco para buena legibilidad */
   text-decoration: underline;
 }
 
 @media (max-width: 600px) {
   footer { padding: 14px 12px; font-size: 0.9rem; }
+  
+  .btn-combo-flotante {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    font-size: 0.85rem;
+  }
 }
-

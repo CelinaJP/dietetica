@@ -1,0 +1,16 @@
+/* Variables globales del tema */
+:root {
+  --color-primary: #556B2F;        /* verde oscuro */
+  --color-secondary: #6B8E23;      /* verde oliva */
+  --color-accent: #FFFACD;         /* amarillo pálido */
+  --color-white: #ffffff;
+  --color-text: #333333;
+  --color-text-light: #999999;
+  --color-bg: #F9F9F9;
+  --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 10px rgba(0,0,0,0.1);
+  --shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+}
