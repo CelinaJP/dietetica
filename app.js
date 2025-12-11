@@ -1,5 +1,5 @@
 // =========================================================
-// 7. VARIABLES GLOBALES Y CONSUMO DE API
+// 7. VARIABLES GLOBALES 
 // =========================================================
 
 const URL_API = 'https://fakestoreapi.com/products?limit=8';

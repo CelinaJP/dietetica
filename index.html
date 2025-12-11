@@ -114,16 +114,20 @@ Más que un almacén, somos un lugar donde se fomenta la alimentación responsab
       <section id="contacto">
         <h2>Contacto</h2>
         <form action="https://formspree.io/f/mjkapyvn" method="POST">
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" required />
-
-          <label for="email">Correo electrónico:</label>
-          <input type="email" id="email" name="email" required />
-
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-
-          <button type="submit">Enviar Mensaje</button>
+            <div class="form-row">
+              <label for="nombre">Nombre:</label>
+              <input class="search-input" id="nombre" name="nombre" required />
+            </div>
+            <div class="form-row">
+              <label for="email">Correo electrónico:</label>
+              <input type="email" class="search-input" id="email" name="email" required />
+            </div>
+            <div class="form-row">
+              <label for="mensaje">Mensaje:</label>
+              <br>
+              <textarea id="mensaje" name="mensaje" rows="5" cols="40" class="search-input" required></textarea>
+            </div>
+            <button type="submit">Enviar Mensaje</button>
         </form>
       </section>
     
